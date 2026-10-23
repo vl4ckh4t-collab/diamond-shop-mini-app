@@ -1,140 +1,421 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#101827">
-  <meta name="description" content="MLBB Diamond Shop — browse packages and order through Telegram.">
-  <title>Diamond Shop | Mini App</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    :root { color-scheme: dark; --bg:#0b1220; --panel:#141f31; --panel2:#1b2940; --text:#f5f7fb; --muted:#9caec6; --blue:#2698ff; --line:#26364e; --green:#20c997; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(ellipse at top,#172b49 0,#0b1220 52%); color:var(--text); min-height:100vh; }
-    .wrap { width:min(100%,720px); margin:0 auto; padding:18px 15px 30px; }
-    .top { display:flex; align-items:center; gap:12px; padding:8px 2px 20px; }
-    .logo { width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#39b6ff,#625bff);font-size:26px;box-shadow:0 8px 25px #2698ff33; }
-    h1 { font-size:20px; margin:0; letter-spacing:.2px; }
-    .sub { margin-top:4px;color:var(--muted);font-size:12px; }
-    .hero { background:linear-gradient(135deg,#1a3c69,#18243b 68%); border:1px solid #345477; border-radius:22px; padding:20px; position:relative; overflow:hidden; }
-    .hero:after { content:"💎";position:absolute;right:14px;top:15px;font-size:72px;opacity:.14;transform:rotate(-12deg); }
-    .eyebrow { color:#8ed4ff;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:1.6px; }
-    .hero h2 { font-size:25px;line-height:1.15;margin:8px 0;max-width:75%; }
-    .hero p { color:#c4d5e9;font-size:13px;line-height:1.5;margin:0;max-width:75%; }
-    .actions { display:flex;gap:9px;margin-top:17px;flex-wrap:wrap; }
-    .btn { display:inline-flex;justify-content:center;align-items:center;gap:7px;border:0;border-radius:13px;padding:12px 15px;font-weight:750;font-size:13px;text-decoration:none;cursor:pointer; }
-    .primary { background:var(--blue);color:white;box-shadow:0 6px 18px #2698ff33; }
-    .secondary { background:#ffffff12;color:#f5f7fb;border:1px solid #ffffff20; }
-    .section-head { display:flex;align-items:end;justify-content:space-between;gap:10px;margin:23px 2px 12px; }
-    .section-head h3 { margin:0;font-size:17px; }
-    .section-head span { font-size:11px;color:var(--muted); }
-    .grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px; }
-    .product { background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:14px;min-width:0; }
-    .gem { height:52px;display:flex;align-items:center;font-size:34px; }
-    .product h4 { font-size:14px;margin:5px 0 4px; }
-    .product .desc { color:var(--muted);font-size:11px;min-height:30px;line-height:1.4; }
-    .price { font-size:13px;font-weight:800;color:#8bd2ff;margin:10px 0; }
-    .product .btn { width:100%;padding:10px 8px;font-size:12px; }
-    .notice { margin-top:16px;background:#14263a;border:1px solid #24415f;border-radius:14px;padding:13px;color:#c2d4e7;font-size:12px;line-height:1.55; }
-    .footer { color:#72859f;text-align:center;font-size:11px;margin:22px 0 4px; }
-    .modal-bg { position:fixed;inset:0;background:#0009;display:none;align-items:end;justify-content:center;padding:12px;z-index:5; }
-    .modal { width:min(100%,520px);background:#162338;border:1px solid #31445f;border-radius:20px;padding:19px;box-shadow:0 20px 70px #0008; }
-    .modal h3 { margin:0 0 7px;font-size:18px; }
-    .modal p { color:#b6c7dc;font-size:13px;line-height:1.5; }
-    label { display:block;font-size:12px;color:#c5d5e7;margin:12px 0 6px; }
-    input { width:100%;border:1px solid #344863;border-radius:11px;background:#0c1728;color:white;padding:12px;font:inherit;outline:none; }
-    .modal-actions { display:flex;gap:9px;margin-top:15px; }
-    .modal-actions .btn { flex:1; }
-    @media(min-width:560px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr));} .wrap{padding-top:26px;} }
-    @media(max-width:360px){ .hero h2{font-size:22px}.hero p{max-width:90%}.grid{gap:8px}.product{padding:11px}.product h4{font-size:13px} }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d19">
+<title>RINA GAMING</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root {
+  --bg:#080d19;
+  --panel:#15243a;
+  --line:#2b405b;
+  --blue:#2998ff;
+  --cyan:#74d9ff;
+  --text:#f5f7ff;
+  --muted:#a2b2c9;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  color:var(--text);
+  background:radial-gradient(ellipse at top,#203a60,var(--bg) 65%);
+  font-family:Arial, sans-serif;
+}
+.wrap {
+  max-width:760px;
+  margin:auto;
+  padding:18px 14px 32px;
+}
+header {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+.logo {
+  width:52px;height:52px;
+  display:grid;place-items:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#32c8ff,#605cff,#a45bff);
+  font-weight:900;font-size:20px;
+  box-shadow:0 5px 24px #328dff40;
+}
+h1 { font-size:21px;margin:0; }
+.sub { font-size:11px;color:var(--muted);margin-top:5px; }
+.hero {
+  padding:22px;
+  border-radius:22px;
+  border:1px solid #345b80;
+  background:linear-gradient(130deg,#1b4875,#17253e,#29224d);
+}
+.eyebrow {
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.hero h2 {
+  font-size:27px;
+  line-height:1.15;
+  margin:12px 0 8px;
+}
+.hero p {
+  color:#c4d5e9;
+  font-size:13px;
+  line-height:1.6;
+}
+.btn {
+  border:0;
+  border-radius:12px;
+  padding:12px 15px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  text-align:center;
+}
+.primary {
+  background:linear-gradient(100deg,#2998ff,#376eff);
+  color:white;
+}
+.secondary {
+  background:#ffffff12;
+  color:white;
+  border:1px solid #ffffff22;
+}
+.section {
+  margin-top:25px;
+}
+.section-title {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:0 2px 12px;
+  gap:8px;
+}
+.section-title h3 { font-size:16px;margin:0; }
+.section-title span { font-size:10px;color:var(--muted); }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.card {
+  min-width:0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:linear-gradient(145deg,#1b2d45,#111c2d);
+  position:relative;
+  overflow:hidden;
+}
+.card:before {
+  content:"";
+  position:absolute;
+  height:2px;
+  top:0;left:0;right:0;
+  background:linear-gradient(90deg,#45d5ff,#6378ff,#b56dff);
+}
+.emoji {
+  font-size:29px;
+  height:44px;
+  display:flex;
+  align-items:center;
+}
+.card h4 {
+  font-size:14px;
+  margin:8px 0;
+  line-height:1.35;
+}
+.card p {
+  font-size:11px;
+  line-height:1.5;
+  color:var(--muted);
+  min-height:33px;
+  margin:0;
+}
+.tag {
+  display:inline-block;
+  font-size:9px;
+  font-weight:bold;
+  color:#9bddff;
+  background:#142b43;
+  border:1px solid #34516d;
+  padding:5px 7px;
+  border-radius:20px;
+  margin-top:9px;
+}
+.order {
+  width:100%;
+  margin-top:13px;
+  font-size:12px;
+  padding:11px 5px;
+}
+.notice {
+  margin-top:20px;
+  padding:14px;
+  border:1px solid #2d4966;
+  border-radius:15px;
+  background:#122239;
+  color:#c5d5e7;
+  font-size:12px;
+  line-height:1.6;
+}
+footer {
+  text-align:center;
+  color:#71849f;
+  font-size:11px;
+  padding:22px 0 0;
+}
+.modal-bg {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000b;
+  z-index:5;
+  align-items:flex-end;
+  justify-content:center;
+  padding:12px;
+}
+.modal {
+  width:100%;
+  max-width:520px;
+  background:#15243a;
+  border:1px solid #344c6b;
+  border-radius:21px;
+  padding:19px;
+}
+.modal h3 { margin-top:0; }
+.modal p {
+  font-size:13px;
+  color:#bacbe0;
+  line-height:1.6;
+}
+label {
+  display:block;
+  font-size:12px;
+  margin:12px 0 6px;
+}
+textarea {
+  width:100%;
+  padding:12px;
+  color:white;
+  background:#0b1627;
+  border:1px solid #344962;
+  border-radius:11px;
+  resize:vertical;
+  font:inherit;
+}
+.actions { display:flex;gap:9px;margin-top:15px; }
+.actions button { flex:1; }
+@media(min-width:580px) {
+  .grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="top">
-      <div class="logo">💎</div>
-      <div><h1 id="shopName">DIAMOND SHOP</h1><div class="sub">MLBB • Fast & easy ordering</div></div>
-    </header>
+<main class="wrap">
 
-    <section class="hero">
-      <div class="eyebrow">Top up center</div>
-      <h2>Your diamonds.<br>Your victory.</h2>
-      <p>Choose a package below and contact our team to confirm the current price and complete your order.</p>
-      <div class="actions">
-        <a class="btn primary" id="contactHero" href="https://t.me/" target="_blank" rel="noopener">💬 Contact to order</a>
-        <button class="btn secondary" id="howBtn" type="button">How to order</button>
-      </div>
-    </section>
+<header>
+  <div class="logo">RG</div>
+  <div>
+    <h1>RINA GAMING</h1>
+    <div class="sub">TOP-UPS • DIGITAL SERVICES • EXCHANGE</div>
+  </div>
+</header>
 
-    <div class="section-head"><h3>💎 Diamond Packages</h3><span>Choose a package</span></div>
-    <section class="grid" id="products"></section>
+<section class="hero">
+  <div class="eyebrow">YOUR DIGITAL SERVICE HUB</div>
+  <h2>One Place.<br>More Possibilities.</h2>
+  <p>Choose your service and contact RINA GAMING directly on Telegram.</p>
+  <a class="btn primary" href="https://t.me/striker_gamingshop">
+    ✈ Contact Shop
+  </a>
+  <button class="btn secondary" onclick="howToOrder()">
+    How to order
+  </button>
+</section>
 
-    <div class="section-head"><h3>🎟️ Passes</h3><span>Popular items</span></div>
-    <section class="grid" id="passes"></section>
+<div id="menu"></div>
 
-    <aside class="notice"><strong>📌 Please note</strong><br>Prices and availability may change. Confirm the final price with the shop before paying. Never share your account password or verification code.</aside>
-    <footer class="footer">Made for Telegram Mini Apps • Edit shop details in <code>index.html</code></footer>
-  </main>
+<div class="notice">
+  <b>🔒 Safe Ordering Reminder</b><br>
+  Confirm price, availability, delivery time and payment instructions
+  before paying. Never share your password or verification code.
+</div>
 
-  <div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <h3 id="modalTitle">How to order</h3>
-      <p id="modalText">1. Choose your package.<br>2. Enter your game User ID and Zone ID in the chat with the shop.<br>3. Confirm price and payment instructions with the shop.</p>
-      <label for="userId">Game User ID (optional)</label><input id="userId" inputmode="numeric" placeholder="Enter User ID">
-      <label for="zoneId">Zone ID (optional)</label><input id="zoneId" inputmode="numeric" placeholder="Enter Zone ID">
-      <div class="modal-actions"><button class="btn secondary" id="closeModal" type="button">Close</button><button class="btn primary" id="sendOrder" type="button">Continue to Telegram</button></div>
+<footer>RINA GAMING • TELEGRAM MINI APP</footer>
+</main>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h3 id="modalTitle">Request Service</h3>
+    <p id="modalDesc">Contact our shop to confirm the details.</p>
+    <label for="details">Order details (optional)</label>
+    <textarea id="details" rows="3"
+      placeholder="Package, amount, server or other details"></textarea>
+    <div class="actions">
+      <button class="btn secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn primary" onclick="sendOrder()">Continue to Telegram</button>
     </div>
   </div>
+</div>
 
-  <script>
-    // EDIT THESE SETTINGS before publishing:
-    const SHOP_NAME = "RINA GAMING";
-    const TELEGRAM_USERNAME = "striker_gamingshop"; // order/support username, without @
-    const CURRENCY_LABEL = "Contact for price"; // replace with your price/currency if desired
+<script>
+const SHOP_NAME = "RINA GAMING";
+const TELEGRAM_USERNAME = "striker_gamingshop";
+const CONTACT_URL = "https://t.me/" + TELEGRAM_USERNAME;
 
-    const products = [
-      { name:"50 Diamonds", desc:"Small top-up package", icon:"💎" },
-      { name:"150 Diamonds", desc:"Everyday package", icon:"💎💎" },
-      { name:"250 Diamonds", desc:"Popular package", icon:"💠" },
-      { name:"500 Diamonds", desc:"Value package", icon:"💎✨" }
-    ];
-    const passes = [
-      { name:"Weekly Pass", desc:"Confirm availability with the shop", icon:"🎟️" },
-      { name:"Twilight Pass", desc:"Confirm availability with the shop", icon:"🌙" }
-    ];
-    let selected = null;
-    const tg = window.Telegram && window.Telegram.WebApp;
-    if (tg) { tg.ready(); tg.expand(); }
-    document.getElementById("shopName").textContent = SHOP_NAME;
-    const contactUrl = "https://t.me/" + TELEGRAM_USERNAME.replace(/^@/, "");
-    document.getElementById("contactHero").href = contactUrl;
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
 
-    function render(items, targetId) {
-      const root = document.getElementById(targetId);
-      items.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "product";
-        const gem = document.createElement("div"); gem.className = "gem"; gem.textContent = item.icon;
-        const title = document.createElement("h4"); title.textContent = item.name;
-        const desc = document.createElement("div"); desc.className = "desc"; desc.textContent = item.desc;
-        const price = document.createElement("div"); price.className = "price"; price.textContent = CURRENCY_LABEL;
-        const btn = document.createElement("button"); btn.className = "btn primary"; btn.textContent = "Order now";
-        btn.addEventListener("click", () => { selected = item; document.getElementById("modalTitle").textContent = "Order " + item.name; document.getElementById("modalBg").style.display = "flex"; if(tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred("light"); });
-        card.append(gem,title,desc,price,btn); root.appendChild(card);
-      });
-    }
-    render(products, "products"); render(passes, "passes");
-    document.getElementById("howBtn").addEventListener("click", () => { selected = null; document.getElementById("modalTitle").textContent = "How to order"; document.getElementById("modalText").innerHTML = "1. Choose a package.<br>2. Provide your game User ID and Zone ID to the shop.<br>3. Confirm the final price and payment instructions before paying."; document.getElementById("modalBg").style.display = "flex"; });
-    document.getElementById("closeModal").addEventListener("click", () => document.getElementById("modalBg").style.display = "none");
-    document.getElementById("modalBg").addEventListener("click", e => { if(e.target.id === "modalBg") e.currentTarget.style.display = "none"; });
-    document.getElementById("sendOrder").addEventListener("click", () => {
-      const name = selected ? selected.name : "Diamond Shop inquiry";
-      const uid = document.getElementById("userId").value.trim();
-      const zid = document.getElementById("zoneId").value.trim();
-      const message = "Hello! I want to order: " + name + (uid ? "\\nUser ID: " + uid : "") + (zid ? "\\nZone ID: " + zid : "");
-      const url = contactUrl + "?text=" + encodeURIComponent(message);
-      if (tg && tg.openTelegramLink) tg.openTelegramLink(url); else window.open(url, "_blank", "noopener");
+const menus = [
+  {
+    title:"🎮 Game Top-Ups",
+    items:[
+      ["Weekly Pass","🎟️","Weekly Pass purchase","MLBB"],
+      ["Myanmar Server","🇲🇲","Myanmar server top-up","MLBB"],
+      ["Ban Server","🌐","Ban server top-up request","MLBB"],
+      ["MCGG","♟️","MCGG service request","GAME"],
+      ["PUBG UC","🎯","PUBG Mobile UC top-up","GAME"]
+    ]
+  },
+  {
+    title:"📱 Apps & Subscriptions",
+    items:[
+      ["CapCut","✂️","CapCut subscription","APP"],
+      ["ChatGPT","🤖","ChatGPT plan inquiry","AI"],
+      ["Telegram Premium","⭐","Premium subscription","TELEGRAM"],
+      ["Telegram Star","🌟","Telegram Stars purchase","TELEGRAM"],
+      ["Telegram Account","👤","Telegram account inquiry","ACCOUNT"],
+      ["Canva","🎨","Canva subscription","APP"],
+      ["Alight Motion","🎬","Alight Motion subscription","APP"]
+    ]
+  },
+  {
+    title:"💱 Exchange & Collectibles",
+    items:[
+      ["USDT Buy/Sell","₮","USDT buy or sell quote","EXCHANGE"],
+      ["Gram (TON)","💎","Gram / TON inquiry","TON"],
+      ["NFT Buy/Sell","🖼️","NFT buy or sell inquiry","NFT"],
+      ["Wave to KPay","🔄","WavePay to KBZPay exchange","EXCHANGE"],
+      ["KPay to Wave","🔁","KBZPay to WavePay exchange","EXCHANGE"]
+    ]
+  }
+];
+
+let selectedService = "";
+
+function renderMenus() {
+  const root = document.getElementById("menu");
+
+  menus.forEach(group => {
+    const section = document.createElement("section");
+    section.className = "section";
+
+    const heading = document.createElement("div");
+    heading.className = "section-title";
+
+    const title = document.createElement("h3");
+    title.textContent = group.title;
+
+    const label = document.createElement("span");
+    label.textContent = "CHOOSE SERVICE";
+
+    heading.append(title,label);
+
+    const grid = document.createElement("div");
+    grid.className = "grid";
+
+    group.items.forEach(item => {
+      const [name,emoji,description,tag] = item;
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const icon = document.createElement("div");
+      icon.className = "emoji";
+      icon.textContent = emoji;
+
+      const heading = document.createElement("h4");
+      heading.textContent = name;
+
+      const desc = document.createElement("p");
+      desc.textContent = description;
+
+      const badge = document.createElement("span");
+      badge.className = "tag";
+      badge.textContent = tag;
+
+      const button = document.createElement("button");
+      button.className = "btn primary order";
+      button.textContent = "Request now";
+      button.onclick = () => openOrder(name);
+
+      card.append(icon,heading,desc,badge,button);
+      grid.appendChild(card);
     });
-  </script>
+
+    section.append(heading,grid);
+    root.appendChild(section);
+  });
+}
+
+function openOrder(service) {
+  selectedService = service;
+  document.getElementById("modalTitle").textContent = service;
+  document.getElementById("modalDesc").textContent =
+    "Send your " + service + " request to " + SHOP_NAME +
+    ". Confirm the price and requirements with the shop.";
+  document.getElementById("details").value = "";
+  document.getElementById("modalBg").style.display = "flex";
+
+  if (tg?.HapticFeedback) {
+    tg.HapticFeedback.impactOccurred("light");
+  }
+}
+
+function howToOrder() {
+  selectedService = "General Inquiry";
+  document.getElementById("modalTitle").textContent = "How to order";
+  document.getElementById("modalDesc").textContent =
+    "1. Choose a service. 2. Add details if needed. " +
+    "3. Continue to Telegram and confirm the final price.";
+  document.getElementById("details").value = "";
+  document.getElementById("modalBg").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modalBg").style.display = "none";
+}
+
+function sendOrder() {
+  const details = document.getElementById("details").value.trim();
+
+  const message =
+    "Hello " + SHOP_NAME + "!\n" +
+    "Service: " + selectedService +
+    (details ? "\nDetails: " + details : "");
+
+  const url = CONTACT_URL + "?text=" + encodeURIComponent(message);
+
+  if (tg?.openTelegramLink) {
+    tg.openTelegramLink(url);
+  } else {
+    window.open(url,"_blank","noopener");
+  }
+}
+
+document.getElementById("modalBg").addEventListener("click",e=>{
+  if (e.target.id === "modalBg") closeModal();
+});
+
+renderMenus();
+</script>
 </body>
 </html>
